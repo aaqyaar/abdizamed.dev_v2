@@ -14,12 +14,12 @@ export default function Home() {
   } = getData();
 
   return (
-    <div className="flex flex-col items-center justify-center mt-8">
-      <h1 className="font-bold text-xl">{"<World of Coding />"}</h1>
+    <div className="flex flex-col  lg:items-center items-stretch justify-center mt-8">
+      <h1 className="font-bold text-xl text-center">{"<World of Coding />"}</h1>
 
-      <div className="bg-[url(/grid.svg)] h-[53.5rem] mt-16">
-        <div className="flex flex-row justify-between items-center w-[50rem] px-4">
-          <div className=" flex flex-row items-center gap-4">
+      <div className="bg-[url(/grid.svg)] h-[53.5rem] mt-16 mx-2">
+        <div className="flex flex-row justify-between items-center">
+          <div className="mx-2 flex flex-row items-center gap-4">
             <Image
               src={about.avatar}
               width={65}
@@ -29,7 +29,10 @@ export default function Home() {
             />
             <div>
               <h1>{about.name}</h1>
-              <div dangerouslySetInnerHTML={{ __html: about.bio }} />
+              <div
+                dangerouslySetInnerHTML={{ __html: about.bio }}
+                className="text-sm opacity-80"
+              />
             </div>
           </div>
 
@@ -60,10 +63,13 @@ export default function Home() {
         <div className="max-w-[850px] mt-[35px] px-4">
           <h1 className="underline text-xl font-bold">Projects</h1>
           {projects.map(({ title, description, link, githubUrl }, index) => (
-            <div className="mt-[21px] flex gap-12 items-center" key={index}>
+            <div
+              className="mt-[21px] flex md:flex-row flex-col gap-12 justify-center "
+              key={index}
+            >
               <div className="bg-gray-100  h-[225px] w-[225px] rounded-3xl" />
 
-              <div className="w-[500px]">
+              <div className="md:w-[500px] w[250px]">
                 <h1>{title}</h1>
                 <p className="my-4 opacity-80">{description}</p>
                 <button className="bg-gray-950 rounded-lg text-white p-2.5">
